@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.folkcat.demo" >
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.folkcat.demo.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.folkcat.demo.asynctask.AsyncTaskActivity"
+            android:exported="true"
+            android:label="AsyncTaskActivity">
+        </activity>
+        <activity
+            android:name=".handlerlopper.HandlerLooperActivity"
+            android:exported="true"
+            android:label="HandlerLoopperActivity"/>
+        <activity
+            android:name=".broadcast.TestBroadcastActivity"
+            android:label="TestBroadcastActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".bitmap.HPBitmapActivity"
+            android:label="TestBroadcastActivity"
+            android:exported="true"/>
+
+        <!--<receiver-->
+            <!--android:name=".broadcast.MyBroadcastReciver">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.folkcat.LAUNCH"/>-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+
+
+    </application>
+
+</manifest>
