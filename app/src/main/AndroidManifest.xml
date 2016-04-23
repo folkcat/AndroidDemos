@@ -38,6 +38,11 @@
             android:name=".swiperefresh.SwipeRefreshActivity"
             android:label="TestBroadcastActivity"
             android:exported="true"/>
+        <activity
+            android:name=".view.TestRecyclerViewActivity"
+            android:label="TestBroadcastActivity"
+            android:exported="true"/>
+
 
         <!--<receiver-->
             <!--android:name=".broadcast.MyBroadcastReciver">-->
