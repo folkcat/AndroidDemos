@@ -2,6 +2,7 @@ package com.folkcat.demo.view;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -26,7 +27,8 @@ public class TestRecyclerViewActivity extends Activity {
             strList.add("Item No."+i);
         }
         MyRecyclerViewAdapter adapter=new MyRecyclerViewAdapter(strList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false);
         mRv.setLayoutManager(layoutManager);//这一步必不可少
 
         mRv.setAdapter(adapter);

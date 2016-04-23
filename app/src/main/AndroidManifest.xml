@@ -42,6 +42,10 @@
             android:name=".view.TestRecyclerViewActivity"
             android:label="TestBroadcastActivity"
             android:exported="true"/>
+        <activity
+            android:name=".view.TestWebView"
+            android:label="TestBroadcastActivity"
+            android:exported="true"/>
 
 
         <!--<receiver-->
