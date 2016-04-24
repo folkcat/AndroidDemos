@@ -46,6 +46,10 @@
             android:name=".view.TestWebView"
             android:label="TestBroadcastActivity"
             android:exported="true"/>
+        <activity
+            android:name=".classloader.TestClassLoaderActivity"
+            android:label="TestBroadcastActivity"
+            android:exported="true"/>
 
 
         <!--<receiver-->
