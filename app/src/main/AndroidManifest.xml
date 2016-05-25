@@ -3,6 +3,7 @@
     package="com.folkcat.demo" >
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -50,14 +51,24 @@
             android:name=".classloader.TestClassLoaderActivity"
             android:label="TestBroadcastActivity"
             android:exported="true"/>
+        <activity
+            android:name=".location.LocationActivity"
+            android:label="LocationActivity"
+            android:exported="true"/>
 
 
-        <!--<receiver-->
-            <!--android:name=".broadcast.MyBroadcastReciver">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="com.folkcat.LAUNCH"/>-->
-            <!--</intent-filter>-->
-        <!--</receiver>-->
+        <receiver
+            android:name=".broadcast.MyBroadcastReciver">
+            <intent-filter>
+                <action android:name="com.folkcat.LAUNCH"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".location.TrackLocationBroadcastReciever">
+            <intent-filter>
+                <action android:name="com.folkcat.UPDATE_LOCATION"/>
+            </intent-filter>
+        </receiver>
 
 
     </application>
