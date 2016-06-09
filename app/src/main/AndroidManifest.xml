@@ -55,6 +55,11 @@
             android:name=".location.LocationActivity"
             android:label="LocationActivity"
             android:exported="true"/>
+        <activity
+            android:name=".gles.GLActivity"
+            android:label="OpenGLESActivity"
+            android:exported="true"/>
+
 
 
         <receiver
