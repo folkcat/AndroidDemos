@@ -28,7 +28,8 @@ public class TestRecyclerViewActivity extends Activity {
         }
         MyRecyclerViewAdapter adapter=new MyRecyclerViewAdapter(strList);
         //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false);
+        //RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
         mRv.setLayoutManager(layoutManager);//这一步必不可少
 
         mRv.setAdapter(adapter);
