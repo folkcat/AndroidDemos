@@ -6,13 +6,46 @@ import android.os.Parcelable;
 /**
  * Created by Tamas on 2016/8/2.
  */
-public class Book  implements Parcelable{
-    public int bookId;
-    public String bookName;
-    public Book(int id,String name){
-        bookId=id;
-        bookName=name;
+public class Book implements Parcelable{
+    protected Book(Parcel in) {
+        name = in.readString();
+        price = in.readInt();
     }
+
+    public static final Creator<Book> CREATOR = new Creator<Book>() {
+        @Override
+        public Book createFromParcel(Parcel in) {
+            return new Book(in);
+        }
+
+        @Override
+        public Book[] newArray(int size) {
+            return new Book[size];
+        }
+    };
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    private String name;
+
+    private int price;
+
+    public Book() {}
+
 
     @Override
     public int describeContents() {
@@ -21,21 +54,12 @@ public class Book  implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(bookId);
-        dest.writeString(bookName);
-
+        dest.writeString(name);
+        dest.writeInt(price);
     }
-
-    public static final Parcelable.Creator<Book> CREATOR=new Parcelable.Creator<Book>(){
-        public Book createFromParcel(Parcel in){
-            return new Book(in);
-        }
-        public Book[] newArray(int size){
-            return new Book[size];
-        }
-    };
-    private Book(Parcel in){
-        bookId=in.readInt();
-        bookName=in.readString();
+    public void readFromParcel(Parcel dest) {
+        //注意，此处的读值顺序应当是和writeToParcel()方法中一致的
+        name = dest.readString();
+        price = dest.readInt();
     }
 }

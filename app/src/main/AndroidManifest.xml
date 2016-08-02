@@ -64,9 +64,7 @@
             android:exported="true"
             android:label="OpenGLESActivity"/>
         <activity
-            android:name=".service.StartServiceActivity"
-            android:exported="true"
-            android:label="OpenGLESActivity"/>
+            android:name=".service.StartServiceActivity"/>
         <activity
             android:name=".lockscreen.LockedScreenActivity"
             android:excludeFromRecents="true"
@@ -109,6 +107,31 @@
                   android:process="com.folkcat.demo.ipc.remote"
                   android:exported="true">
         </activity>
+
+        <activity android:name=".messenger.MessengerActivity"
+            android:exported="true">
+
+        </activity>
+        <activity android:name=".aidl.AIDLActivity"
+            android:exported="true">
+
+        </activity>
+        <service
+            android:name=".messenger.MessengerService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.folkcat.messenger"></action>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".aidl.AIDLService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.folkcat.aidl"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
