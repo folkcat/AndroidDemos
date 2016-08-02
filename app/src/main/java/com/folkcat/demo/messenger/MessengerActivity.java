@@ -11,6 +11,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.view.View;
+import android.widget.Button;
 
 import com.folkcat.demo.R;
 
@@ -22,6 +23,8 @@ public class MessengerActivity extends Activity {
     static final int MSG_SAY_HELLO = 1;
 
     Messenger mService = null;
+
+    private Button mBtnSayHello;
     boolean mBound;
 
     private ServiceConnection mConnection = new ServiceConnection() {
@@ -29,7 +32,6 @@ public class MessengerActivity extends Activity {
             //接收onBind()传回来的IBinder，并用它构造Messenger
             mService = new Messenger(service);
             mBound = true;
-            sayHello();
         }
 
         public void onServiceDisconnected(ComponentName className) {
@@ -54,15 +56,25 @@ public class MessengerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messenger);
+        mBtnSayHello=(Button)findViewById(R.id.btn_sayhello);
+        mBtnSayHello.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sayHello();
+            }
+        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         //绑定服务端的服务，此处的action是service在Manifests文件里面声明的
+        /*
         Intent intent = new Intent();
         intent.setAction("com.folkcat.messenger");
-        //不要忘记了包名，不写会报错
+        intent.setPackage("com.folkcat.demo");
+        */
+        Intent intent =new Intent(MessengerActivity.this,MessengerService.class);
         intent.setPackage("com.folkcat.demo");
         bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
     }
