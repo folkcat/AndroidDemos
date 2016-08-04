@@ -132,6 +132,13 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>
+
+        <activity android:name=".sqlite.FirstLookSQLiteActivity"
+                  android:exported="true">
+        </activity>
+        <activity android:name=".sqlite.UseSQLiteActivity"
+                  android:exported="true">
+        </activity>
     </application>
 
 </manifest>
