@@ -21,7 +21,7 @@ public class TestRecyclerViewActivity extends Activity {
         super.onCreate(_savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
         mRv=(RecyclerView)findViewById(R.id.rv_test);
-        mRv.setHasFixedSize(true);
+        //mRv.setHasFixedSize(true);
         List<String> strList=new ArrayList<String>();
         for(int i=0;i<80;i++){
             strList.add("Item No."+i);
@@ -29,7 +29,7 @@ public class TestRecyclerViewActivity extends Activity {
         MyRecyclerViewAdapter adapter=new MyRecyclerViewAdapter(strList);
         //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         //RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
         mRv.setLayoutManager(layoutManager);//这一步必不可少
 
         mRv.setAdapter(adapter);

@@ -139,6 +139,12 @@
         <activity android:name=".sqlite.UseSQLiteActivity"
                   android:exported="true">
         </activity>
+        <activity android:name=".stepview.StepViewActivity"
+                  android:exported="true">
+        </activity>
+        <activity android:name=".stepview.StepViewActivityType2"
+                  android:exported="true">
+        </activity>
     </application>
 
 </manifest>
