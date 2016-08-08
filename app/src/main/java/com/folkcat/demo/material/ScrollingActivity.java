@@ -1,4 +1,4 @@
-package com.folkcat.demo.view;
+package com.folkcat.demo.material;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
