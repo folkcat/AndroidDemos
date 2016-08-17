@@ -83,12 +83,6 @@
         </receiver>
 
         <activity
-            android:name=".material.ScrollingActivity"
-            android:exported="true"
-            android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
             android:name=".view.ZhihuEffictActiviy"
             android:exported="true"
             android:label="@string/title_activity_scrolling"
@@ -176,9 +170,15 @@
         </activity>
         <activity
             android:name=".material.NavDrawerActivity"
+            android:exported="true"
             android:label="@string/title_activity_nav_drawer"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:exported="true">
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".material.Scrolling2Activity"
+            android:exported="true"
+            android:label="@string/title_activity_scrolling2"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 
