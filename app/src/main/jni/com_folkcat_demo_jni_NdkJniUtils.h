@@ -9,11 +9,19 @@ extern "C" {
 #endif
 /*
  * Class:     com_folkcat_demo_jni_NdkJniUtils
+ * Method:    f
+ * Signature: (ILjava/lang/String;)D
+ */
+JNIEXPORT jdouble JNICALL Java_com_folkcat_demo_jni_NdkJniUtils_f
+        (JNIEnv *, jobject, jint, jstring);
+
+/*
+ * Class:     com_folkcat_demo_jni_NdkJniUtils
  * Method:    getCLanguageString
  * Signature: ()Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_com_folkcat_demo_jni_NdkJniUtils_getCLanguageString
-  (JNIEnv *, jobject);
+        (JNIEnv *, jobject);
 
 #ifdef __cplusplus
 }

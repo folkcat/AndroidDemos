@@ -7,5 +7,6 @@ public class NdkJniUtils {
     static {
         System.loadLibrary("firstJniLibName");	//defaultConfig.ndk.moduleName
     }
+    native double f(int i, String s);
     public native String getCLanguageString();
 }

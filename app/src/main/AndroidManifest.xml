@@ -184,6 +184,10 @@
             android:name=".jni.JNIActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".testoff.TestNetActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>
