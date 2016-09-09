@@ -161,4 +161,30 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_scrolling2">Scrolling2Activity</string>
+
+    <string-array name="languages">
+        <item >CANADA</item>
+        <item >CANADA_FRENCH</item>
+        <item >CHINA</item>
+        <item >CHINESE</item>
+        <item >ENGLISH</item>
+        <item >FRANCE</item>
+        <item >FRENCH</item>
+        <item >GERMAN</item>
+        <item >GERMANY</item>
+        <item >CANADA</item>
+        <item >ITALIAN</item>
+        <item >ITALY</item>
+        <item >JAPAN</item>
+        <item >JAPANESE</item>
+        <item >KOREA</item>
+        <item >KOREAN</item>
+        <item >PRC</item>
+        <item >ROOT</item>
+        <item >SIMPLIFIED_CHINESE</item>
+        <item >TAIWAN</item>
+        <item >TRADITIONAL_CHINESE</item>
+        <item >UK</item>
+        <item >US</item>
+    </string-array>
 </resources>

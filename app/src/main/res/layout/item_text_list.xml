@@ -7,5 +7,25 @@
         android:id="@+id/tv_list_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <FrameLayout
+        android:orientation="vertical"
+        android:layout_width="200dp"
+        android:layout_height="100dp">
+        <TextView
+            android:textSize="20dp"
+            android:gravity="center"
+            android:id="@+id/tv_text"
+            android:text="one"
+            android:layout_width="200dp"
+            android:layout_height="100dp"/>
+        <TextView
+            android:textSize="20dp"
+            android:gravity="center"
+            android:id="@+id/tv_text2"
+            android:text="two"
+            android:layout_width="200dp"
+            android:layout_height="100dp"/>
+    </FrameLayout>
+
 
 </LinearLayout>
