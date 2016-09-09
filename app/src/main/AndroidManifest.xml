@@ -222,6 +222,9 @@
         <activity android:name=".rxjava.RxJavaActivity"
                   android:exported="true">
         </activity>
+        <activity android:name=".okhttp.OKHttpActivity"
+                  android:exported="true">
+        </activity>
     </application>
 
 </manifest>
