@@ -36,7 +36,7 @@ public class RxJavaActivity extends Activity implements View.OnClickListener{
             subscriber.onNext(3);
             subscriber.onCompleted();
             */
-        }
+    }
     }).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread());
     Subscriber mIntegerSubscriber = new Subscriber<Integer>() {
@@ -50,7 +50,7 @@ public class RxJavaActivity extends Activity implements View.OnClickListener{
         }
         @Override
         public void onNext(Integer value) {
-            Log.i(TAG,"onNext: " + value+"in thread:"+Thread.currentThread().toString());
+            Log.i(TAG,"onNext: " + value+" in thread:"+Thread.currentThread().toString());
         }
     };
     @Override
@@ -79,13 +79,17 @@ public class RxJavaActivity extends Activity implements View.OnClickListener{
 
                 mIntegerObservable.just(8);//这句没有效果
                 mIntegerObservable.subscribe(mIntegerSubscriber);
+                mIntegerObservable.just(9);//这句也没有效果
                 break;
             case R.id.btn_rx_type2:
                 testRxJavaAnomousType();
+                break;
             case R.id.btn_rx_type3:
                 testRxWithFilter();
+                break;
             case R.id.btn_rx_type4:
                 testRxWithFilterAndMap();
+                break;
             default:
                 break;
         }
@@ -157,5 +161,20 @@ public class RxJavaActivity extends Activity implements View.OnClickListener{
                         Log.i(TAG,"onNext: " + value);
                     }
                 });
+    }
+
+    private void testRxJavaCustomType(){
+        Observable.just(7,8 ,9).subscribe(new Subscriber<Integer>() {
+            @Override
+            public void onCompleted() {
+                Log.i(TAG,"Complete!");
+            }
+            @Override
+            public void onError(Throwable e) {}
+            @Override
+            public void onNext(Integer value) {
+                Log.i(TAG,"onNext: " + value);
+            }
+        });
     }
 }

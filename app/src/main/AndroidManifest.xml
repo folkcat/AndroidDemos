@@ -228,6 +228,9 @@
         <activity android:name=".xmpp.TestXMPPActivity"
                   android:exported="true">
         </activity>
+        <activity android:name=".checkversion.CheckVersionActivity"
+                  android:exported="true">
+        </activity>
     </application>
 
 </manifest>

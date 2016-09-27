@@ -44,7 +44,7 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
     }
 
 
-    String mUrl="http://blog.csdn.net/mynameishuangshuai/article/details/51303446";
+    String mUrl="http://7qnat8.com1.z0.glb.clouddn.com/check_version2.json";
     OkHttpClient mClient = new OkHttpClient();
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
