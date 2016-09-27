@@ -1,14 +1,23 @@
 package com.folkcat.demo.checkversion;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.folkcat.demo.R;
 
@@ -20,6 +29,7 @@ import java.io.IOException;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -38,17 +48,18 @@ import rx.schedulers.Schedulers;
 }
  */
 
-public class CheckVersionActivity extends Activity {
+public class CheckVersionActivity extends AppCompatActivity {
+    private static final int REQUEST_WRITE_EXTRAL_STORAGE=1;
     private static final String TAG="CheckVersionActivity";
     private String mCheckVersionUrl="http://7qnat8.com1.z0.glb.clouddn.com/check_version3.json";
     private Button mBtnCheckVersion;
     OkHttpClient mClient = new OkHttpClient();//不知道为什么OKHttpClient对象必须为成员变量，如果是局部变量会发生SocketTimeoutException
-    @Override
+
+
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_version);
         mBtnCheckVersion=(Button)findViewById(R.id.btn_check_version);
-
         mBtnCheckVersion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,6 +148,7 @@ public class CheckVersionActivity extends Activity {
                 builder.setPositiveButton("升级", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        tryWriteExtralStoragePermission();
                         dialog.dismiss();
                     }
                 });
@@ -156,4 +168,29 @@ public class CheckVersionActivity extends Activity {
             }
         }
     };
+    public void tryWriteExtralStoragePermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_EXTRAL_STORAGE);
+        } else {
+            startDownLoadService();
+        }
+    }
+    void startDownLoadService(){
+        Intent toStartDownloadService=new Intent(CheckVersionActivity.this,DownloadService.class);
+        startService(toStartDownloadService);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == REQUEST_WRITE_EXTRAL_STORAGE){
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                startDownLoadService();
+            } else {
+                // Permission Denied
+                Toast.makeText(getApplicationContext(), "被拒绝了", Toast.LENGTH_SHORT).show();
+            }
+            return;
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
 }

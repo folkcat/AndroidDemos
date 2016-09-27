@@ -231,6 +231,7 @@
         <activity android:name=".checkversion.CheckVersionActivity"
                   android:exported="true">
         </activity>
+        <service android:name=".checkversion.DownloadService"></service>
     </application>
 
 </manifest>
