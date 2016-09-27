@@ -225,6 +225,9 @@
         <activity android:name=".okhttp.OKHttpActivity"
                   android:exported="true">
         </activity>
+        <activity android:name=".xmpp.TestXMPPActivity"
+                  android:exported="true">
+        </activity>
     </application>
 
 </manifest>
