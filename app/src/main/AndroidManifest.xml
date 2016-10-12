@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.folkcat.demo"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.folkcat.demo">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.Manifest.permission.INTERNAL_SYSTEM_WINDOW"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <!--悬浮窗-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.Manifest.permission.INTERNAL_SYSTEM_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 悬浮窗 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
@@ -17,74 +17,73 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <service android:name=".service.TestService"/>
+        <service android:name=".service.TestService" />
 
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".asynctask.AsyncTaskActivity"
             android:exported="true"
-            android:label="AsyncTaskActivity">
-        </activity>
+            android:label="AsyncTaskActivity"></activity>
         <activity
             android:name=".handlerlopper.HandlerLooperActivity"
             android:exported="true"
-            android:label="HandlerLoopperActivity"/>
+            android:label="HandlerLoopperActivity" />
         <activity
             android:name=".broadcast.TestBroadcastActivity"
             android:exported="true"
-            android:label="TestBroadcastActivity"/>
+            android:label="TestBroadcastActivity" />
         <activity
             android:name=".bitmap.HPBitmapActivity"
             android:exported="true"
-            android:label="TestBroadcastActivity"/>
+            android:label="TestBroadcastActivity" />
         <activity
             android:name=".swiperefresh.SwipeRefreshActivity"
             android:exported="true"
-            android:label="TestBroadcastActivity"/>
+            android:label="TestBroadcastActivity" />
         <activity
             android:name=".view.TestRecyclerViewActivity"
             android:exported="true"
-            android:label="TestBroadcastActivity"/>
+            android:label="TestBroadcastActivity" />
         <activity
             android:name=".view.TestWebView"
             android:exported="true"
-            android:label="TestBroadcastActivity"/>
+            android:label="TestBroadcastActivity" />
         <activity
             android:name=".classloader.TestClassLoaderActivity"
             android:exported="true"
-            android:label="TestBroadcastActivity"/>
+            android:label="TestBroadcastActivity" />
         <activity
             android:name=".location.LocationActivity"
             android:exported="true"
-            android:label="LocationActivity"/>
+            android:label="LocationActivity" />
         <activity
             android:name=".gles.GLActivity"
             android:exported="true"
-            android:label="OpenGLESActivity"/>
-        <activity android:name=".service.StartServiceActivity"/>
+            android:label="OpenGLESActivity" />
+        <activity android:name=".service.StartServiceActivity" />
         <activity
             android:name=".lockscreen.LockedScreenActivity"
             android:excludeFromRecents="true"
             android:exported="true"
             android:label="OpenGLESActivity"
-            android:launchMode="singleInstance"/>
+            android:launchMode="singleInstance" />
 
         <receiver android:name=".broadcast.MyBroadcastReciver">
             <intent-filter>
-                <action android:name="com.folkcat.LAUNCH"/>
+                <action android:name="com.folkcat.LAUNCH" />
             </intent-filter>
         </receiver>
         <receiver android:name=".location.TrackLocationBroadcastReciever">
             <intent-filter>
-                <action android:name="com.folkcat.UPDATE_LOCATION"/>
+                <action android:name="com.folkcat.UPDATE_LOCATION" />
             </intent-filter>
         </receiver>
 
@@ -92,146 +91,132 @@
             android:name=".view.ZhihuEffictActiviy"
             android:exported="true"
             android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ipc.P1Activity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ipc.P2Activity"
             android:exported="true"
-            android:process=":remote">
-        </activity>
+            android:process=":remote"></activity>
         <activity
             android:name=".ipc.P3Activity"
             android:exported="true"
-            android:process="com.folkcat.demo.ipc.remote">
-        </activity>
+            android:process="com.folkcat.demo.ipc.remote"></activity>
         <activity
             android:name=".messenger.MessengerActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".aidl.AIDLActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
 
         <service
             android:name=".messenger.MessengerService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.folkcat.messenger"/>
+                <action android:name="com.folkcat.messenger" />
             </intent-filter>
         </service>
         <service
             android:name=".aidl.AIDLService"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.folkcat.aidl"/>
+                <action android:name="com.folkcat.aidl" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
 
         <activity
             android:name=".sqlite.FirstLookSQLiteActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".sqlite.UseSQLiteActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".stepview.StepViewActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".stepview.StepViewActivityType2"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".material.TabbedActivity"
             android:exported="true"
             android:label="@string/title_activity_tabbed"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".material.Tabbed2Activity"
             android:exported="true"
             android:label="@string/title_activity_tabbed2"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".material.Tabbed3Activity"
             android:exported="true"
             android:label="@string/title_activity_tabbed3"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".material.SettingsActivity"
             android:exported="true"
-            android:label="@string/title_activity_settings">
-        </activity>
+            android:label="@string/title_activity_settings"></activity>
         <activity
             android:name=".material.NavDrawerActivity"
             android:exported="true"
             android:label="@string/title_activity_nav_drawer"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".material.Scrolling2Activity"
             android:exported="true"
             android:label="@string/title_activity_scrolling2"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".jni.JNIActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".audio.AudioRecordActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".audio.RecordActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".testoff.TestNetActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
 
         <receiver android:name=".autostart.BootBroadCastReciever">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED">
-                </action>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
             </intent-filter>
         </receiver>
 
-        <activity android:name=".animation.AnimationActivity"
-                  android:exported="true">
-        </activity>
-        <activity android:name=".tts.TTSActivity"
-                  android:exported="true">
-        </activity>
-        <activity android:name=".suspend.SuspendActivity"
-                  android:exported="true">
-        </activity>
-        <activity android:name=".rxjava.RxJavaActivity"
-                  android:exported="true">
-        </activity>
-        <activity android:name=".okhttp.OKHttpActivity"
-                  android:exported="true">
-        </activity>
-        <activity android:name=".xmpp.TestXMPPActivity"
-                  android:exported="true">
-        </activity>
-        <activity android:name=".checkversion.CheckVersionActivity"
-                  android:exported="true">
-        </activity>
-        <service android:name=".checkversion.DownloadService"></service>
+        <activity
+            android:name=".animation.AnimationActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".tts.TTSActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".suspend.SuspendActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".rxjava.RxJavaActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".okhttp.OKHttpActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".xmpp.TestXMPPActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".checkversion.CheckVersionActivity"
+            android:exported="true"></activity>
+
+        <service android:name=".checkversion.DownloadService" />
+
+        <activity
+            android:name=".liteorm.TestLiteOrmActivity"
+            android:exported="true"
+            android:label="@string/title_activity_test_lite_orm"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
