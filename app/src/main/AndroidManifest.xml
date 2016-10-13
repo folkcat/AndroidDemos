@@ -11,6 +11,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 悬浮窗 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 指纹模块 -->
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
 
     <application
         android:allowBackup="true"
@@ -217,6 +219,10 @@
             android:exported="true"
             android:label="@string/title_activity_test_lite_orm"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".fingerprint.FingerPrintActivity"
+            android:exported="true"/>
     </application>
+
 
 </manifest>
