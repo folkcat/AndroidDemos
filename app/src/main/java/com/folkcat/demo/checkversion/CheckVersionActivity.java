@@ -1,15 +1,11 @@
 package com.folkcat.demo.checkversion;
 
 import android.Manifest;
-import android.app.Activity;
-import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -20,16 +16,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.folkcat.demo.R;
+import com.google.gson.Gson;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -84,6 +78,12 @@ public class CheckVersionActivity extends AppCompatActivity {
 
                 Log.i(TAG,"HAHAHAHA Fuck");
                 String content=response.body().string();
+
+
+                Gson gson=new Gson();
+                CheckVersion checkVersion=gson.fromJson(content,CheckVersion.class);
+                checkVersion.setLocalVersionCode(localVersioncode);
+                /*
                 int length=content.length();
                 Log.i(TAG,"Contentttt"+content);
                 JSONObject jsonObj=new JSONObject(content);
@@ -94,10 +94,9 @@ public class CheckVersionActivity extends AppCompatActivity {
                 checkVersion.setServerVersionCode(jsonObj.getInt("VersionCode"));
                 checkVersion.setUrl(jsonObj.getString("Url"));
                 checkVersion.setVersionName(jsonObj.getString("VersionName"));
+                */
                 subscriber.onNext(checkVersion);
             } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e){
                 e.printStackTrace();
             } catch(PackageManager.NameNotFoundException e){
                 e.printStackTrace();

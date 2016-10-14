@@ -1,14 +1,23 @@
 package com.folkcat.demo.checkversion;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Tamas on 2016/9/27.
  */
 public class CheckVersion {
+    @SerializedName("VersionCode")
     private int serverVersionCode;
+    @Expose
     private int localVersionCode;
+    @SerializedName("NotSupportBefore")
     private int notSupportBefore;
+    @SerializedName("VersionName")
     private String versionName;
+    @SerializedName("NewFeather")
     private String newFeather;
+    @SerializedName("Url")
     private String url;
 
     public int getServerVersionCode() {

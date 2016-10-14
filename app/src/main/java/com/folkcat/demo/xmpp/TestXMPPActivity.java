@@ -8,10 +8,6 @@ import android.widget.EditText;
 
 import com.folkcat.demo.R;
 
-import org.jivesoftware.smack.ConnectionConfiguration;
-import org.jivesoftware.smack.XMPPConnection;
-import org.jivesoftware.smack.XMPPException;
-
 /**
  * Created by Tamas on 2016/9/18.
  */
