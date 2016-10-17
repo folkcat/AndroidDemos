@@ -70,7 +70,8 @@
             android:name=".gles.GLActivity"
             android:exported="true"
             android:label="OpenGLESActivity" />
-        <activity android:name=".service.StartServiceActivity" />
+        <activity android:name=".service.StartServiceActivity"
+            android:exported="true"/>
         <activity
             android:name=".lockscreen.LockedScreenActivity"
             android:excludeFromRecents="true"

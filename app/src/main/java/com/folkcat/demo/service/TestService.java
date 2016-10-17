@@ -18,11 +18,15 @@ public class TestService extends Service {
 
     @Override
     public void onCreate(){
+        Log.i(TAG,"onCreate called");
         mHandler=new Handler();
+        /*
         new Thread(new CheckIsLockedRunnable()).start();
+        */
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.i(TAG, "onStartCommand called");
         return START_STICKY;
     }
     @Override
@@ -56,6 +60,7 @@ public class TestService extends Service {
         }
     }
 
+    /*
     private class CheckIsLockedRunnable implements Runnable{
         private boolean isShowed=false;
         public void run(){
@@ -83,6 +88,7 @@ public class TestService extends Service {
             }
         }
     }
+    */
 
 
 
