@@ -47,7 +47,7 @@
             android:exported="true"
             android:label="TestBroadcastActivity" />
         <activity
-            android:name=".swiperefresh.SwipeRefreshActivity"
+            android:name=".material.SwipeRefreshActivity"
             android:exported="true"
             android:label="TestBroadcastActivity" />
         <activity
@@ -170,11 +170,6 @@
             android:label="@string/title_activity_nav_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".material.Scrolling2Activity"
-            android:exported="true"
-            android:label="@string/title_activity_scrolling2"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".jni.JNIActivity"
             android:exported="true" />
         <activity
@@ -198,9 +193,6 @@
             android:exported="true" />
         <activity
             android:name=".tts.TTSActivity"
-            android:exported="true" />
-        <activity
-            android:name=".suspend.SuspendActivity"
             android:exported="true" />
         <activity
             android:name=".rxjava.RxJavaActivity"
@@ -239,8 +231,14 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".suspend.PopWindow2Activity"
-            android:exported="true"></activity>
+        <activity
+            android:name=".suspend.PopWindow2Activity"
+            android:exported="true" />
+        <activity
+            android:name=".material.ScrollingActivity"
+            android:exported="true"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
