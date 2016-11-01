@@ -17,13 +17,16 @@ import android.widget.Toast;
 
 import com.folkcat.demo.R;
 import com.google.gson.Gson;
-
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
 
 import java.io.IOException;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.GsonConverterFactory;
+import retrofit.Response;
+import retrofit.Retrofit;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -57,14 +60,43 @@ public class CheckVersionActivity extends AppCompatActivity {
         mBtnCheckVersion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCheckVersionObservable.subscribe(mCheckVersionSubscriber);
+                //mCheckVersionObservable.subscribe(mCheckVersionSubscriber);
+                Log.i(TAG,"onClick");
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl("http://7qnat8.com1.z0.glb.clouddn.com/")
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+                CheckVersionService apiService = retrofit.create(CheckVersionService.class);
+                Call<CheckVersion> call = apiService.getLastVersionInfo();
+                call.enqueue(new Callback<CheckVersion>() {
+                    @Override
+                    public void onResponse(Response<CheckVersion> response, Retrofit retrofit) {
+                        CheckVersion checkVersion=response.body();
+                        Log.i(TAG,"onNext called " );
+                        Log.i(TAG,"serverVersionCode:"+checkVersion.getServerVersionCode());
+                        Log.i(TAG,"localVersionCode:"+checkVersion.getLocalVersionCode());
+                        Log.i(TAG,"notSupportBefore:"+checkVersion.getNotSupportBefore());
+                        Log.i(TAG,"versionName:"+checkVersion.getVersionName());
+                        Log.i(TAG,"newFeather:"+checkVersion.getNewFeather());
+                        Log.i(TAG,"url:"+checkVersion.getUrl());
+                        Log.e(TAG,"请求成功");
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        Log.e(TAG,"请求失败");
+                    }
+                });
+
 
             }
         });
     }
+    /*
     Observable mCheckVersionObservable = Observable.create(new Observable.OnSubscribe<CheckVersion>() {
         @Override
         public void call(Subscriber subscriber) {
+
             Log.i(TAG,"call() is called, in thread:"+Thread.currentThread().toString());
             Request request = new Request.Builder().url(mCheckVersionUrl).build();
             Response response = null;
@@ -83,18 +115,7 @@ public class CheckVersionActivity extends AppCompatActivity {
                 Gson gson=new Gson();
                 CheckVersion checkVersion=gson.fromJson(content,CheckVersion.class);
                 checkVersion.setLocalVersionCode(localVersioncode);
-                /*
-                int length=content.length();
-                Log.i(TAG,"Contentttt"+content);
-                JSONObject jsonObj=new JSONObject(content);
-                CheckVersion checkVersion=new CheckVersion();
-                checkVersion.setLocalVersionCode(localVersioncode);
-                checkVersion.setNewFeather(jsonObj.getString("NewFeather"));
-                checkVersion.setNotSupportBefore(jsonObj.getInt("NotSupportBefore"));
-                checkVersion.setServerVersionCode(jsonObj.getInt("VersionCode"));
-                checkVersion.setUrl(jsonObj.getString("Url"));
-                checkVersion.setVersionName(jsonObj.getString("VersionName"));
-                */
+
                 subscriber.onNext(checkVersion);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -167,6 +188,7 @@ public class CheckVersionActivity extends AppCompatActivity {
             }
         }
     };
+    */
     public void tryWriteExtralStoragePermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_EXTRAL_STORAGE);

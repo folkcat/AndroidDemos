@@ -36,7 +36,7 @@ public class RxJavaActivity extends Activity implements View.OnClickListener{
             subscriber.onNext(3);
             subscriber.onCompleted();
             */
-    }
+        }
     }).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread());
     Subscriber mIntegerSubscriber = new Subscriber<Integer>() {
@@ -110,7 +110,7 @@ public class RxJavaActivity extends Activity implements View.OnClickListener{
     }
     //发出奇数
     private void testRxWithFilter(){
-        Observable.just(11, 12, 13, 14, 15, 16) // add more numbers
+        Observable.just(11, 12, 13, 14, 15, 16) // add more numbers11 13 15
                 .filter(new Func1<Integer,Boolean>() {
                     @Override
                     public Boolean call(Integer value) {

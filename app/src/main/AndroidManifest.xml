@@ -206,9 +206,6 @@
             android:name=".rxjava.RxJavaActivity"
             android:exported="true" />
         <activity
-            android:name=".okhttp.OKHttpActivity"
-            android:exported="true" />
-        <activity
             android:name=".xmpp.TestXMPPActivity"
             android:exported="true" />
         <activity
