@@ -9,8 +9,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.folkcat.demo.lockscreen.LockedScreenActivity;
-
 
 public class TestService extends Service {
     private static final String TAG="TestService";

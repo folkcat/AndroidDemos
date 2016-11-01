@@ -1,10 +1,13 @@
-package com.folkcat.demo;
+package com.folkcat.demo.notification;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+
+import com.folkcat.demo.R;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -20,6 +23,9 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         mTvLoad=(TextView)findViewById(R.id.tv_load);
         mHandler=new Handler();
+        Intent toNotificationService=new Intent(MainActivity.this, NotificationService.class);
+        startService(toNotificationService);
+
     }
     @Override
     public void onStart(){

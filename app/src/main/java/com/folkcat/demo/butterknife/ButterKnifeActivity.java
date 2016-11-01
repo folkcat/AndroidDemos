@@ -1,10 +1,12 @@
 package com.folkcat.demo.butterknife;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.folkcat.demo.R;
+import com.folkcat.demo.notification.NotificationService;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +27,8 @@ public class ButterKnifeActivity extends Activity {
         ButterKnife.bind(this);
 
         mTvContent.setText("我是从ButterKnife绑定的");
+        Intent toNotificationService=new Intent(ButterKnifeActivity.this,NotificationService.class);
+        startService(toNotificationService);
     }
 
 }
