@@ -238,7 +238,16 @@
             android:name=".material.ScrollingActivity"
             android:exported="true"
             android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".action.ActionActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="fk"></data>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -14,7 +14,8 @@ import java.util.ArrayList;
 
 public class TestLiteOrmActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private DataBase mainDB;
+    //private DataBase mainDB;
+    private LiteOrm mainDB;
     private static final String TAG="TestLiteOrmActivity";
 
     @Override
@@ -44,6 +45,7 @@ public class TestLiteOrmActivity extends AppCompatActivity implements View.OnCli
                     // 创建数据库,传入当前上下文对象和数据库名称
                     mainDB = LiteOrm.newSingleInstance(TestLiteOrmActivity.this,
                             "test_lite_orm.db");
+                    mainDB.setDebugged(true);
                     Log.i(TAG,"创建数据库成功");
                 }
 
